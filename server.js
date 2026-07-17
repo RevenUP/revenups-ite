@@ -363,7 +363,7 @@ function paginaLeads({ leads, total, pagina, totalPaginas, busca, statusFiltro, 
   const linhas = leads
     .map(
       (lead) => `
-        <tr onclick="location.href='/admin/leads/${lead.id}'">
+        <tr data-href="/admin/leads/${lead.id}">
           <td>${escapeHtml(lead.nome)}</td>
           <td>${escapeHtml(lead.email)}</td>
           <td>${escapeHtml(lead.empresa || '-')}</td>
@@ -443,6 +443,7 @@ function paginaLeads({ leads, total, pagina, totalPaginas, busca, statusFiltro, 
     }
     ${paginacao}
   </main>
+  <script src="/admin-leads.js"></script>
 </body>
 </html>`;
 }
