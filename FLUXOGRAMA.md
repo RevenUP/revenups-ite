@@ -12,6 +12,9 @@ Como o site publicado em https://revenups-ite.onrender.com funciona hoje,
 de ponta a ponta: desde o visitante preenchendo o formulário até o lead
 virar um cadastro permanente em `Workspace Entrega/`.
 
+Versão em imagem (PNG) para visualização rápida, sem precisar renderizar
+Mermaid: [`Fluxograma - Site RevenUp.png`](Fluxograma%20-%20Site%20RevenUp.png).
+
 ```mermaid
 flowchart TD
     V["Visitante abre<br/>revenups-ite.onrender.com"] --> F["Preenche formulário<br/>(nome, e-mail, empresa, mensagem)"]
