@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RevenUp — Unidade Estratégica de Receita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  /* =========================================================
+     TOKENS DE MARCA — RevenUp
+     Fonte: 01 - Raiz/040 Branding/041 - Branding 002 - Paleta de Cores.md
+     Proporção recomendada: 70% branco, 20% azul institucional, 10% laranja.
+     NUNCA usar verde, roxo, vermelho, azul claro, ciano ou neon como cor de marca.
+     ========================================================= */
+  :root {
+    --laranja-primario: #F15A24;
+    --laranja-secundario: #FF8A33;
+    --amarelo-apoio: #FFC247;
+    --azul-institucional: #102C54;
+    --branco: #FFFFFF;
+    --cinza-claro: #F5F5F5;
+    --texto: #1A1A1A;
+
+    --font-titulo: 'Montserrat', sans-serif;
+    --font-corpo: 'Inter', sans-serif;
+
+    --max-width: 1100px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-corpo);
+    color: var(--texto);
+    background: var(--branco);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .eyebrow {
+    font-family: var(--font-titulo);
+  }
+
+  h1, h2, h3 { font-weight: 700; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--azul-institucional);
+  }
+
+  .logo span { color: var(--laranja-primario); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--texto);
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--laranja-primario);
+    color: var(--branco);
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .btn:hover { background: var(--laranja-secundario); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 80px 24px 96px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--laranja-primario);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    max-width: 780px;
+    margin: 0 auto 20px;
+    color: var(--azul-institucional);
+    text-wrap: balance;
+  }
+
+  .hero p {
+    max-width: 620px;
+    margin: 0 auto 32px;
+    font-size: 1.1rem;
+    color: #4A4A4A;
+  }
+
+  /* ---------- Seção clara (fundo branco/cinza) ---------- */
+  section {
+    padding: 72px 24px;
+  }
+
+  section.alt {
+    background: var(--cinza-claro);
+  }
+
+  .section-title {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+    color: var(--azul-institucional);
+    margin-bottom: 12px;
+  }
+
+  .section-title p {
+    color: #555;
+  }
+
+  /* ---------- Grid de cards ---------- */
+  .grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--branco);
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .card .numero {
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    color: var(--laranja-primario);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    color: var(--azul-institucional);
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* ---------- Seção Quem Somos / Manifesto ---------- */
+  .manifesto {
+    text-align: center;
+  }
+
+  .manifesto p {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    font-size: 1.05rem;
+    color: #333;
+  }
+
+  .manifesto p.destaque {
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    color: var(--azul-institucional);
+    font-size: 1.3rem;
+    margin-top: 32px;
+  }
+
+  /* ---------- Seção escura (Método) ---------- */
+  .metodo {
+    background: var(--azul-institucional);
+    color: var(--branco);
+  }
+
+  .metodo .section-title h2,
+  .metodo .section-title p { color: var(--branco); }
+
+  .metodo .section-title p { opacity: 0.75; }
+
+  .fase {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .fase .numero { color: var(--amarelo-apoio); }
+  .fase h3 { color: var(--branco); }
+  .fase p { color: rgba(255,255,255,0.75); }
+
+  /* ---------- O que não fazemos ---------- */
+  .nao-fazemos ul {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .nao-fazemos li {
+    background: var(--branco);
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* ---------- CTA final ---------- */
+  .cta-final {
+    text-align: center;
+    padding: 96px 24px;
+  }
+
+  .cta-final h2 {
+    font-size: 2rem;
+    color: var(--azul-institucional);
+    max-width: 560px;
+    margin: 0 auto 16px;
+    text-wrap: balance;
+  }
+
+  .cta-final p {
+    max-width: 480px;
+    margin: 0 auto 32px;
+    color: #555;
+  }
+
+  .cta-final .links-secundarios {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.9rem;
+  }
+
+  .cta-final .links-secundarios a {
+    color: var(--azul-institucional);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .cta-final .links-secundarios a:hover {
+    color: var(--laranja-primario);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--cinza-claro);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  footer .footer-links {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  footer .footer-links a {
+    color: #666;
+    text-decoration: none;
+  }
+
+  footer .footer-links a:hover {
+    color: var(--laranja-primario);
+  }
+
+  /* ---------- Formulário de contato ---------- */
+  .form-contato {
+    max-width: 480px;
+    margin: 40px auto 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-contato label {
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--azul-institucional);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    font-family: var(--font-corpo);
+    font-size: 0.95rem;
+    color: var(--texto);
+    background: var(--branco);
+  }
+
+  .form-contato input:focus,
+  .form-contato textarea:focus {
+    outline: none;
+    border-color: var(--laranja-primario);
+  }
+
+  .form-contato textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-contato button {
+    margin-top: 8px;
+  }
+
+  .form-msg {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .form-msg.sucesso { color: #1A7A3C; display: block; }
+  .form-msg.erro { color: var(--laranja-primario); display: block; }
+
+  .form-divisor {
+    max-width: 480px;
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; } /* trocar por menu mobile na implementação final */
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Reven<span>Up</span></div>
+  <nav>
+    <ul>
+      <li><a href="#quem-somos">Quem Somos</a></li>
+      <li><a href="#solucao">Solução</a></li>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <a href="#contato" class="btn">Falar com a RevenUp</a>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Unidade Estratégica de Receita</div>
+  <h1>O crescimento que sua empresa já tem, mas ainda não estruturou</h1>
+  <p>A RevenUp estrutura negócios para gerar receita recorrente com a base instalada, transformando relacionamentos existentes em crescimento previsível, escalável e sustentável.</p>
+  <a href="#contato" class="btn">Agendar diagnóstico</a>
+</section>
+
+<section class="alt manifesto" id="quem-somos">
+  <div class="section-title">
+    <h2>Quem somos</h2>
+    <p>Uma consultoria estratégica especializada em estruturar novas Unidades Estratégicas de Receita para empresas que já possuem uma base consolidada de clientes.</p>
+  </div>
+  <p>Não acreditamos que vender mais seja a única forma de crescer. Acreditamos que empresas fortes criam novas fontes de receita utilizando ativos que já possuem — sua base de clientes.</p>
+  <p>Não buscamos soluções rápidas. Construímos estruturas que permanecem. Não vendemos promessas. Implantamos métodos.</p>
+  <p class="destaque">Relacionamento gera confiança. Confiança gera oportunidade. Oportunidade gera crescimento.</p>
+</section>
+
+<section id="solucao">
+  <div class="section-title">
+    <h2>O que é a Unidade Estratégica de Receita</h2>
+    <p>Uma estrutura criada dentro da empresa para desenvolver relacionamento com a base de clientes e gerar novas oportunidades de receita.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="numero">01</div>
+      <h3>Metodologia própria</h3>
+      <p>O Método RevenUp™ é uma metodologia proprietária para implantar a UER com estrutura, não apenas estratégia.</p>
+    </div>
+    <div class="card">
+      <div class="numero">02</div>
+      <h3>Implantação prática</h3>
+      <p>Não entregamos apenas um plano — implantamos processos, rotinas e indicadores dentro da operação do cliente.</p>
+    </div>
+    <div class="card">
+      <div class="numero">03</div>
+      <h3>Crescimento sustentável</h3>
+      <p>Foco em receita recorrente e previsível a partir da base instalada, não em picos de vendas isolados.</p>
+    </div>
+  </div>
+</section>
+
+<section class="metodo" id="metodo">
+  <div class="section-title">
+    <h2>Método RevenUp™</h2>
+    <p>As 4 fases de implantação da UER</p>
+  </div>
+  <div class="grid">
+    <div class="fase">
+      <div class="numero">FASE 1</div>
+      <h3>Diagnóstico</h3>
+      <p>Entender profundamente o negócio do cliente e mapear o potencial de UER.</p>
+    </div>
+    <div class="fase">
+      <div class="numero">FASE 2</div>
+      <h3>Estruturação</h3>
+      <p>Projetar e estruturar a UER — objetivos, fluxos, rotinas e indicadores.</p>
+    </div>
+    <div class="fase">
+      <div class="numero">FASE 3</div>
+      <h3>Ativação</h3>
+      <p>Colocar a UER em operação e validar processos com a base real.</p>
+    </div>
+    <div class="fase">
+      <div class="numero">FASE 4</div>
+      <h3>Receita Recorrente</h3>
+      <p>Consolidar a UER como operação permanente geradora de crescimento previsível.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt nao-fazemos">
+  <div class="section-title">
+    <h2>O que a RevenUp não é</h2>
+    <p>Para deixar claro o que entregamos, é preciso dizer o que não fazemos.</p>
+  </div>
+  <ul>
+    <li>Agência de marketing</li>
+    <li>Empresa de pós-venda</li>
+    <li>Empresa de vendas terceirizadas</li>
+    <li>Consultoria genérica</li>
+    <li>Empresa de design</li>
+    <li>Treinamentos motivacionais</li>
+  </ul>
+</section>
+
+<section class="cta-final" id="contato">
+  <h2>Vamos estruturar a Unidade Estratégica de Receita da sua empresa?</h2>
+  <p>Uma conversa consultiva para entender sua base de clientes e o potencial de crescimento previsível que ela já representa.</p>
+  <div class="links-secundarios">
+    <a href="https://www.linkedin.com/company/reven-up/" target="_blank" rel="noopener">LinkedIn — RevenUp</a>
+    <a href="https://www.linkedin.com/in/gustavo-conaco-ba6443233/" target="_blank" rel="noopener">LinkedIn — Gustavo, Fundador</a>
+  </div>
+
+  <form class="form-contato" id="form-contato">
+    <div>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required />
+    </div>
+    <div>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+      <label for="empresa">Empresa</label>
+      <input type="text" id="empresa" name="empresa" />
+    </div>
+    <div>
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+    </div>
+    <button type="submit" class="btn">Enviar mensagem</button>
+    <p class="form-msg" id="form-msg"></p>
+  </form>
+
+  <p class="form-divisor">ou fale direto por <a href="mailto:Revenup001@gmail.com" style="color: var(--laranja-primario);">e-mail</a></p>
+</section>
+
+<footer>
+  © 2026 RevenUp. A RevenUp estrutura negócios para gerar receita recorrente com a base instalada.
+  <div class="footer-links">
+    <a href="mailto:Revenup001@gmail.com">Revenup001@gmail.com</a>
+    <a href="https://www.linkedin.com/company/reven-up/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('form-contato');
+  const msg = document.getElementById('form-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.className = 'form-msg';
+    msg.textContent = '';
+
+    const dados = {
+      nome: form.nome.value.trim(),
+      email: form.email.value.trim(),
+      empresa: form.empresa.value.trim(),
+      mensagem: form.mensagem.value.trim(),
+    };
+
+    const botao = form.querySelector('button');
+    botao.disabled = true;
+    botao.textContent = 'Enviando...';
+
+    try {
+      const resposta = await fetch('/api/contato', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados),
+      });
+
+      if (!resposta.ok) throw new Error('Falha no envio');
+
+      msg.textContent = 'Mensagem enviada. Em breve entraremos em contato.';
+      msg.className = 'form-msg sucesso';
+      form.reset();
+    } catch (erro) {
+      msg.textContent = 'Não foi possível enviar agora. Tente novamente ou use o e-mail direto.';
+      msg.className = 'form-msg erro';
+    } finally {
+      botao.disabled = false;
+      botao.textContent = 'Enviar mensagem';
+    }
+  });
+</script>
+
+</body>
+</html>
