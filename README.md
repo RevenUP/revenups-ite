@@ -4,6 +4,9 @@ Site institucional da RevenUp com formulário de contato, banco de dados
 Postgres, painel de leads (mini-CRM) e sincronização automática com o
 Cérebro (`projeto RevenUp AI 1.0`).
 
+Fluxograma completo (visitante → banco → painel → sincronização) em
+[`FLUXOGRAMA.md`](FLUXOGRAMA.md).
+
 ## Arquitetura
 
 ```
